@@ -1,15 +1,5 @@
 from pathlib import Path
 
-import yaml
-
-CONFIG_FILE = Path("bangerbot/config.yaml")
-
-
-def get_config(client: str) -> dict:
-    with open(CONFIG_FILE) as file:
-        config = yaml.safe_load(file)
-    return config[client]
-
 
 def clean_url(url: str):
     return url.strip().split("&")[0]
