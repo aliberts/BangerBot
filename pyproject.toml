@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "bangerbot"
+version = "0.1.0"
+description = "Get those bangers rolling"
+authors = ["Simon Alibert <alibert.sim@gmail.com>"]
+repository = "https://github.com/aliberts/bangerbot"
+readme = "README.md"
+packages = [{include = "bbot"}]
+
+[tool.poetry.scripts]
+banger = "bbot.main:bangerbot"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pyyaml = "^6.0.1"
+tqdm = "^4.66.1"
+click = "^8.1.7"
+yt-dlp = "^2023.10.13"
+scdl = "^2.7.3"
+pydantic = "^2.4.2"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^3.5.0"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "N", "B", "C4", "SIM"]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
