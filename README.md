@@ -3,8 +3,9 @@
 [![Poetry](https://img.shields.io/endpoint?url=https://python-poetry.org/badge/v0.json)](https://python-poetry.org/)
 ![Python Versions](https://img.shields.io/pypi/pyversions/bangerbot)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
-[![PyPI version](https://badge.fury.io/py/bangerbot.svg)](https://badge.fury.io/py/bangerbot)
-![Stable Version](https://img.shields.io/pypi/v/bangerbot?label=stable)
+[![PyPI - Version](https://img.shields.io/pypi/v/bangerbot)](https://pypi.python.org/pypi/bangerbot)
+![PyPI - Status](https://img.shields.io/pypi/status/bangerbot)
+![PyPI - License](https://img.shields.io/pypi/l/bangerbot)
 
 ## What is this for?
 
