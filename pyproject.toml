@@ -1,11 +1,19 @@
 [tool.poetry]
 name = "bangerbot"
-version = "0.1.1"
-description = "Get those bangers rolling"
+version = "0.1.2"
+description = "Get those bangers banging 🔥"
 authors = ["Simon Alibert <alibert.sim@gmail.com>"]
 repository = "https://github.com/aliberts/BangerBot"
+license = "MIT"
 readme = "README.md"
 packages = [{include = "bbot"}]
+keywords = ["music", "dj", "poetry"]
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Multimedia :: Sound/Audio",
+    "Development Status :: 4 - Beta",
+]
 
 [tool.poetry.scripts]
 banger = "bbot.main:bangerbot"
