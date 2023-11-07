@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bangerbot"
-version = "0.1.0"
+version = "0.1.1"
 description = "Get those bangers rolling"
 authors = ["Simon Alibert <alibert.sim@gmail.com>"]
 repository = "https://github.com/aliberts/banger"
@@ -14,8 +14,6 @@ banger = "bbot.main:bangerbot"
 python = "^3.10"
 tqdm = "^4.66.1"
 click = "^8.1.7"
-yt-dlp = "^2023.10.13"
-scdl = "^2.7.3"
 pydantic = "^2.4.2"
 
 [tool.poetry.group.dev.dependencies]
