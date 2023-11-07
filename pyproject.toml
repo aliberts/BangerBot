@@ -3,7 +3,7 @@ name = "bangerbot"
 version = "0.1.1"
 description = "Get those bangers rolling"
 authors = ["Simon Alibert <alibert.sim@gmail.com>"]
-repository = "https://github.com/aliberts/banger"
+repository = "https://github.com/aliberts/BangerBot"
 readme = "README.md"
 packages = [{include = "bbot"}]
 
