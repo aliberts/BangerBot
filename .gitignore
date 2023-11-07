@@ -2,6 +2,9 @@
 .DS_Store
 ._.DS_Store
 
+# secrets
+.env
+
 # bb_path
 bbot/bb_paths.json
 
