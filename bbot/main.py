@@ -23,7 +23,7 @@ def bangerbot():
 
 
 @bangerbot.command(
-    help="""Setup the location for banger to download files to. Downloaded
+    help="""Setup the location for BangerBot to download files to. Downloaded
     bangers will either be placed into an 'HQ' (High Quality) or 'LQ' (Low
     Quality) folder depending on their format. The 'bangers.txt' and
     'bangers_history.txt' files used for the 'banger batch' command will be
@@ -55,8 +55,8 @@ def init(path: click.Path):
 @click.option(
     "--mp3",
     is_flag=True,
-    help="""Downloads as mp3 (default is m4a). Note that the quality
-                   of mp3 format is slightly inferior to that of m4a""",
+    help="""Downloads as mp3 (default for Youtube is m4a). Note that the
+    quality of mp3 format is slightly inferior to that of m4a""",
 )
 def get(music_url: str, mp3: bool):
     bb_paths = BangerBotPaths.load(BB_PATHS_FILE)
@@ -71,7 +71,7 @@ def get(music_url: str, mp3: bool):
         download_from_soundcloud(url, bb_paths.root, mp3)
     else:
         print("Unsupported URL: The provided link is neither from YouTube nor SoundCloud.")
-        raise ValueError
+        exit(code=1)
 
     current_files = utils.get_files(bb_paths.root)
     new_files = [file for file in current_files if file not in old_files]
@@ -82,6 +82,9 @@ def get(music_url: str, mp3: bool):
         elif file.suffix in LQ_TYPE:
             new_name = file.rename(bb_paths.lq_tracks / file.name)
 
+    utils.append_history([url], bb_paths.batch_history_file)
+    print(f"Url written to {utils.ppath(bb_paths.batch_history_file)}:")
+
     print(f"Banger downloaded from {provider} to {utils.ppath(new_name)}")
 
 
@@ -89,7 +92,7 @@ def get(music_url: str, mp3: bool):
     help="""Download several tracks listed in the bangers.txt.
         Provide one Youtube or Soundcloud url per line."""
 )
-@click.option("--mp3", is_flag=True, help="If Youtube link, downloads as MP3 (default is M4A)")
+@click.option("--mp3", is_flag=True, help="Download as MP3 (default is M4A)")
 @click.option(
     "-f",
     "--from",
@@ -128,7 +131,7 @@ def batch(mp3, from_file):
 
     utils.append_history(urls, bb_paths.batch_history_file)
 
-    print(f"Urls {utils.ppath(batch_file)} written to {utils.ppath(bb_paths.batch_history_file)}:")
+    print(f"Urls from {batch_file.name} written to {utils.ppath(bb_paths.batch_history_file)}:")
     print("Bangers downloaded:")
     for name in new_names:
         print(utils.ppath(name))
