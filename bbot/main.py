@@ -85,7 +85,7 @@ def get(music_url: str, mp3: bool):
     utils.append_history([url], bb_paths.batch_history_file)
     print(f"Url written to {utils.ppath(bb_paths.batch_history_file)}:")
 
-    print(f"Banger downloaded from {provider} to {utils.ppath(new_name)}")
+    print(f"🔥 Banger downloaded from {provider} to {utils.ppath(new_name)}")
 
 
 @bangerbot.command(
@@ -132,7 +132,7 @@ def batch(mp3, from_file):
     utils.append_history(urls, bb_paths.batch_history_file)
 
     print(f"Urls from {batch_file.name} written to {utils.ppath(bb_paths.batch_history_file)}:")
-    print("Bangers downloaded:")
+    print(f"🔥 {len(new_names)} bangers downloaded:")
     for name in new_names:
         print(utils.ppath(name))
 
