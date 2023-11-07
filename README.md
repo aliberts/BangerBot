@@ -1,6 +1,17 @@
-# Banger Bot
+# BangerBot — Get those bangers banging 🔥
 
-Get those bangers banging 🔥
+<p align="center">
+ <a href="https://www.python.org/downloads/release/python-3100/">
+  <img src="https://img.shields.io/badge/Python-3.10-blue"
+    alt="Python Version">
+ </a>
+ <a href="https://github.com/astral-sh/ruff">
+        <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff" style="max-width:100%;">
+ </a>
+    <a href="https://badge.fury.io/py/bangerbot">
+        <img src="https://badge.fury.io/py/bangerbot.svg" alt="PyPI version">
+    </a>
+</p>
 
 ## Installation
 
@@ -69,9 +80,9 @@ For now, BangerBot only supports SoundClound and Youtube urls
 
 ## Roadmap
 
-[x] Support Youtube and SoundCloud urls
-[ ] Shell completion
-[ ] Add metadata to downloaded tracks
+    - [x] Support Youtube and SoundCloud urls
+    - [ ] Shell completion
+    - [ ] Add metadata to downloaded tracks
 
 ## Disclaimer
 
