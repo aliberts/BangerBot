@@ -69,7 +69,6 @@ python3 -m pipx ensurepath
 
 ```bash
 pipx install bangerbot
-pipx inject --include-apps bangerbot scdl yt-dlp
 ```
 
 ### 3. Run init
@@ -79,6 +78,8 @@ Follow the prompt to setup the folder used by BangerBot:
 ```bash
 banger init
 ```
+
+This will create the bangerbot folder and install the `scdl`and `yt-dlp` dependencies via pipx if they are not found
 
 ## Use BangerBot
 

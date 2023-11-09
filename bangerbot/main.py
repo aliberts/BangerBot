@@ -1,4 +1,5 @@
 import json
+import shutil
 import subprocess
 from functools import cached_property
 from pathlib import Path
@@ -42,6 +43,14 @@ def bangerbot():
     help="The root location for banger to work with.",
 )
 def init(path: click.Path):
+    scdl = shutil.which("scdl")
+    if not scdl:
+        utils.install_pipx_dependency("scdl")
+
+    yt_dlp = shutil.which("yt-dlp")
+    if not yt_dlp:
+        utils.install_pipx_dependency("yt-dlp")
+
     bbot_root_path = Path(path).expanduser()
     bb_paths = BangerBotPaths(root=bbot_root_path)
     bb_paths.create()
@@ -63,6 +72,7 @@ def init(path: click.Path):
     quality of mp3 format is slightly inferior to that of m4a""",
 )
 def get(music_url: str, mp3: bool):
+    utils.check_init()
     bb_paths = BangerBotPaths.load(BB_PATHS_FILE_PATH)
     url = utils.clean_url(music_url)
     old_files = utils.get_files(bb_paths.root)
@@ -106,6 +116,7 @@ def get(music_url: str, mp3: bool):
         of mp3 format is slightly inferior to that of m4a""",
 )
 def batch(mp3, from_file):
+    utils.check_init()
     bb_paths = BangerBotPaths.load(BB_PATHS_FILE_PATH)
     batch_file = Path(from_file.name) if from_file else bb_paths.batch_file
     old_files = utils.get_files(bb_paths.root)
@@ -210,13 +221,13 @@ class BangerBotPaths(BaseModel):
             with open(bb_paths_file) as file:
                 json_data = json.load(file)
         except FileNotFoundError:
-            print("Config file not found. Run 'banger init' first.")
+            utils.prompt_init(utils.InitCause.NO_BB_PATHS_FILE)
             exit(code=1)
 
         try:
             model = cls.model_validate(json_data)
         except ValidationError:
-            print("Config file corrupted. Run 'banger init'.")
+            utils.prompt_init(utils.InitCause.BB_PATHS_FILE_CORRUPTED)
             exit(code=1)
 
         return model
