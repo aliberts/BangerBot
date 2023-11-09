@@ -32,7 +32,7 @@ BangerBot will write the urls of all the downloaded tracks in `bangers_history.t
 
 ## But... why?
 
-BangerBot is essentially a wrapper around [scdl](https://github.com/flyingrub/scdl) and [yt-dlp](https://github.com/yt-dlp/yt-dlp). You could run a command with eihter of them and get the same result as with BangerBot. But you'd have to first decide which CLI tool to use depending on the source (Youtube or Soundcloud) and then remember their commands and all the options each time.
+BangerBot is essentially a wrapper around [scdl](https://github.com/flyingrub/scdl) and [yt-dlp](https://github.com/yt-dlp/yt-dlp). You could run a command with either of them and get the same result as with BangerBot. But you'd have to first decide which CLI tool to use depending on the source (Youtube or Soundcloud) and then remember their commands and all the options each time.
 
 Here's what the equivalent of `banger get <youtube_url>` looks like with, e.g., yt-dlp:
 
@@ -120,8 +120,8 @@ For now, BangerBot only supports SoundCloud and Youtube urls.
 - [ ] `banger info` to get info about a track
 - [ ] `banger history` to display history
 - [ ] `banger where` to show the location of the bangerbot folder
-- [ ] Safely erase banger.txt after download
-- [ ] Add metadata to downloaded tracks
+- [ ] Safely clear banger.txt content after download
+- [ ] Fetch metadata to downloaded tracks
 
 ## Disclaimer
 
