@@ -5,8 +5,11 @@
 # secrets
 .env
 
+# secrets
+TODO.md
+
 # bb_path
-bbot/bb_paths.json
+bangerbot/bb_paths.json
 
 # Ruff
 .ruff_cache

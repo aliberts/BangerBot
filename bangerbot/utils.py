@@ -1,4 +1,18 @@
+import importlib.resources
+from importlib.metadata import version
 from pathlib import Path
+
+import bangerbot
+
+BB_PATHS_FILE = Path("bb_paths.json")
+
+
+def get_bb_paths_file_path() -> Path:
+    return importlib.resources.files(bangerbot.__name__) / BB_PATHS_FILE
+
+
+def get_bb_version() -> str:
+    return ".".join(version(bangerbot.__name__).split(".")[:3])
 
 
 def clean_url(url: str):
